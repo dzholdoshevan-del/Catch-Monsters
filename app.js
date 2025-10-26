@@ -194,3 +194,4 @@ function deleteScore(id) {
 // === ╨Ъ╨Э╨Ю╨Я╨Ъ╨Ш ===
 musicBtn.onclick = toggleMusic;
 startBtn.onclick = startGame;"// 3. Игра: монстры, спавн, уровни, босс" 
+"// 4. Эффекты: музыка, звуки, сообщения" 
