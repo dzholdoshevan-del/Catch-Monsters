@@ -1,0 +1,118 @@
+/* === НЕОН === */
+.neon-glow {
+  text-shadow: 
+    0 0 10px #ff00ff,
+    0 0 20px #00ffff,
+    0 0 30px #ff00ff,
+    0 0 40px #00ffff;
+  animation: neonPulse 2s infinite alternate;
+}
+@keyframes neonPulse {
+  from { text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff; }
+  to { text-shadow: 0 0 20px #ff00ff, 0 0 40px #00ffff, 0 0 60px #ff00ff; }
+}
+
+.neon-btn {
+  box-shadow: 0 0 15px rgba(255,0,255,0.8);
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+.neon-btn:hover {
+  box-shadow: 0 0 25px #ff00ff, 0 0 40px #00ffff;
+  transform: translateY(-3px) scale(1.05);
+}
+
+.border-neon {
+  border: 3px solid #ff00ff !important;
+  box-shadow: 0 0 20px rgba(255,0,255,0.6);
+}
+
+/* === АРЕНА === */
+.arena {
+  width: 90%;
+  max-width: 750px;
+  height: 450px;
+  margin: 20px auto;
+  background: radial-gradient(circle at center, #1a0033, #000);
+  border: 4px solid #ff00ff;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 40px rgba(255,0,255,0.6);
+}
+
+/* === ОВЕРЛЕЙ === */
+.overlay {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4.5rem;
+  font-weight: bold;
+  color: #ffff00;
+  text-shadow: 
+    0 0 20px #ff0000,
+    0 0 40px #ff00ff,
+    0 0 60px #ff0000;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 100;
+  white-space: pre-line;
+  text-align: center;
+}
+.overlay.show {
+  opacity: 1;
+  animation: levelUp 2.5s ease-in-out;
+}
+@keyframes levelUp {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5) rotate(-10deg); }
+  20% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+  80% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(1.3) rotate(10deg); }
+}
+
+/* === МОНСТРЫ === */
+.monster {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  filter: drop-shadow(0 0 15px #00ff00);
+  animation: float 2.5s infinite ease-in-out;
+  transition: transform 0.2s;
+  user-select: none;
+}
+.monster:hover {
+  transform: scale(1.4) rotate(10deg) !important;
+  filter: drop-shadow(0 0 25px #ff0000);
+}
+.bonus { animation: pulse 1.2s infinite; filter: drop-shadow(0 0 20px gold); }
+.boss {
+  width: 160px !important;
+  height: 160px !important;
+  animation: bossWave 2s infinite;
+  filter: drop-shadow(0 0 40px #ff0000, 0 0 60px #ff0000);
+}
+
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+@keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.5); } }
+@keyframes bossWave { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-30px) rotate(20deg); } }
+
+/* === ВЗРЫВ === */
+.explosion {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, #ffff00, #ff6600, #ff0000, transparent);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: explode 0.8s forwards;
+  z-index: 10;
+}
+@keyframes explode {
+  0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+/* === СТАТИСТИКА === */
+.stats { font-size: 1.3rem; }
+.stat { margin: 0 12px; font-weight: bold; }
